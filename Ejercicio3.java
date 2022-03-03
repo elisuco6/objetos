@@ -31,24 +31,24 @@ public class Ejercicio3 {
      */
     public static void informacionVideojuegos(String fichero) {
         ArrayList<String> consolas = new ArrayList<String>();
-        ArrayList<String> consolascopia = new ArrayList<String>();
         File file = new File(fichero);
         boolean linea1 = true;
         try {
             Scanner f = new Scanner(file);
-            int contarconsolas = 0;
+
+            /*
+             * Debemos recorrer las lineas del csv saltandonos la del indice se puede hacer
+             * con un boolean como se
+             */
             while (f.hasNextLine()) {
                 String linea = f.nextLine();
-                String duplicado = "";
                 if (linea1) {
                     linea1 = false;
                 } else {
                     String[] lineaSep = linea.split(",");
                     consolas.add(lineaSep[2]);
-
                 }
-            }
-            System.out.println(consolas);
+            }System.out.println(consolas);
         } catch (
                 FileNotFoundException e) {
             System.out.println(e);
